@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h1 class="mb-4">Pacientes</h1>
+  <a href="/pacientes/create" class="btn btn-primary mb-3">+ Nuevo Paciente</a>
+
+  {{#if pacientes}}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Membresia</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each pacientes}}
+          <tr>
+            <td>{{firstName}}</td>
+            <td>{{lastName}}</td>
+            <td>{{email}}</td>
+            <td>{{membershipType}}</td>
+            <td>
+              <a href="/pacientes/{{id}}" class="btn btn-sm btn-outline-secondary">Ver</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p class="text-muted">No hay pacientes todavía.</p>
+  {{/if}}
+</div>

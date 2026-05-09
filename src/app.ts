@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import { engine } from 'express-handlebars'
+import pacienteRouter from './routes/paciente.routes'
 
 const app = express()
 
@@ -17,5 +18,7 @@ app.set('views', viewsPath)
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (_req, res) => res.render('home'))
+
+app.use('/pacientes', pacienteRouter)
 
 export default app

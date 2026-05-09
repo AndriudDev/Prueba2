@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <a href="/pacientes" class="btn btn-outline-secondary btn-sm mb-3">← Volver al listado</a>
+
+  <h1 class="mb-4">Nuevo Paciente</h1>
+
+  <form action="/pacientes" method="POST" class="card card-body">
+    <div class="mb-3">
+      <label for="firstName" class="form-label">Nombre:</label>
+      <input type="text" id="firstName" name="firstName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Apellido:</label>
+      <input type="text" id="lastName" name="lastName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="membershipType" class="form-label">Membresia:</label>
+      <input type="text" id="membershipType" name="membershipType" class="form-control" required placeholder="Ej: Premium o Basic">
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Paciente</button>
+  </form>
+</div>

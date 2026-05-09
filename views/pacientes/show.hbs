@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <a href="/pacientes" class="btn btn-outline-secondary btn-sm mb-3">← Volver al listado</a>
+
+  <h1 class="mb-3">{{paciente.firstName}} {{paciente.lastName}}</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text"><strong>Email:</strong> {{paciente.email}}</p>
+      <p class="card-text"><strong>Membresia:</strong> {{paciente.membershipType}}</p>
+    </div>
+  </div>
+
+  <div class="mt-3 d-flex gap-2">
+    <a href="/pacientes/{{paciente.id}}/edit" class="btn btn-warning">Editar</a>
+    <form action="/pacientes/{{paciente.id}}/delete" method="POST">
+      <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form>
+  </div>
+</div>
