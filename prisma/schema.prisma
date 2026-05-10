@@ -16,7 +16,6 @@ model Paciente {
   id             Int    @id @default(autoincrement())
   firstName      String
   lastName       String
-  precio         Int
   email          String
   membershipType String
 }
