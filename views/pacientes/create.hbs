@@ -18,7 +18,12 @@
     </div>
     <div class="mb-3">
       <label for="membershipType" class="form-label">Membresia:</label>
-      <input type="text" id="membershipType" name="membershipType" class="form-control" required placeholder="Ej: Premium o Basic">
+      <select id="membershipType" name="membershipType" class="form-select" required>
+        <option value="" disabled selected>Seleccione una membresía</option>
+        <option value="Silver">Silver</option>
+        <option value="Gold">Gold</option>
+        <option value="Platinum">Platinum</option>
+      </select>
     </div>
     <button type="submit" class="btn btn-primary">Crear Paciente</button>
   </form>

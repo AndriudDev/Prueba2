@@ -6,8 +6,30 @@
   <div class="card">
     <div class="card-body">
       <p class="card-text"><strong>Email:</strong> {{paciente.email}}</p>
-      <p class="card-text"><strong>Membresia:</strong> {{paciente.membershipType}}</p>
-      <p class="card-text"><strong>Precio:</strong> ${{paciente.precio}}</p>
+      <p class="card-text"><strong>Membresía:</strong> {{paciente.membershipType}}</p>
+    </div>
+  </div>
+
+  <!-- SIMULADOR -->
+  <div class="card mt-4 shadow-sm">
+    <div class="card-header bg-dark text-white">
+      Simulador de presupuesto
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="montoTratamiento" class="form-label">Costo del tratamiento ($)</label>
+        <input type="number" id="montoTratamiento" class="form-control" placeholder="Ej: 80000">
+      </div>
+
+      <div class="p-3 bg-light rounded">
+        <p>Descuento aplicado ({{paciente.membershipType}}): 
+          <!-- Guardamos el valor en data-porcentaje -->
+          <span class="badge bg-success" id="badgeDescuento" data-porcentaje="{{paciente.descuento}}">
+            {{paciente.descuento}}%
+          </span>
+        </p>
+        <h4 class="text-primary">Total a pagar: <span id="resultado">$0</span></h4>
+      </div>
     </div>
   </div>
 
@@ -18,3 +40,20 @@
     </form>
   </div>
 </div>
+
+<script>
+  const inputMonto = document.getElementById('montoTratamiento');
+  const spanResultado = document.getElementById('resultado');
+  const porcentaje = parseFloat(document.getElementById('badgeDescuento').dataset.porcentaje);
+
+  inputMonto.addEventListener('input', () => {
+    const monto = parseFloat(inputMonto.value) || 0;
+    const calculo = monto - (monto * (porcentaje / 100));
+    
+    // Formatear a moneda (ej: $72.000)
+    spanResultado.innerText = new Intl.NumberFormat('es-CL', {
+      style: 'currency',
+      currency: 'CLP'
+    }).format(calculo);
+  });
+</script>

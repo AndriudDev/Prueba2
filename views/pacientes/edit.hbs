@@ -18,11 +18,13 @@
     </div>
     <div class="mb-3">
       <label for="membershipType" class="form-label">Membresia:</label>
-      <input type="text" id="membershipType" name="membershipType" class="form-control" value="{{paciente.membershipType}}" required>
-    </div>
-    <div class="mb-3">
-      <label for="precio" class="form-label">Precio:</label>
-      <input type="number" id="precio" name="precio" class="form-control" value="{{paciente.precio}}" required>
+      <select id="membershipType" name="membershipType" class="form-select" required>
+        {{!-- <option value="" disabled selected>Seleccione una membresía</option> --}}
+        <option value="{{paciente.membershipType}}" >{{paciente.membershipType}} </option>
+        <option value="Silver">Silver</option>
+        <option value="Gold">Gold</option>
+        <option value="Platinum">Platinum</option>
+      </select>
     </div>
     <button type="submit" class="btn btn-primary">Guardar cambios</button>
   </form>
